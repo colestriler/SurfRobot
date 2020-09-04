@@ -9,7 +9,6 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
 
     # REGISTER BLUEPRINTS
-    from flaskapp.main.routes import main
     from flaskapp.bots.app import bots
     app.register_blueprint(main)
     app.register_blueprint(bots)
