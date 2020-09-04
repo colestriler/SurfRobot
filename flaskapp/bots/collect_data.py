@@ -7,6 +7,7 @@ import re
 import requests
 
 tmp_url = "https://www.surfline.com/surf-report/terra-mar-point/5842041f4e65fad6a77088a6"
+tamarack = 'https://www.surfline.com/surf-report/tamarack/5842041f4e65fad6a7708837'
 oside_pier_south_url = "https://www.surfline.com/surf-report/oceanside-pier-southside/584204204e65fad6a7709435"
 oside_pier_north_url = "https://www.surfline.com/surf-report/oceanside-pier-northside/5842041f4e65fad6a7708835"
 oside_harbor_url = "https://www.surfline.com/surf-report/oceanside-harbor-north-jetty/5842041f4e65fad6a7708832"
@@ -15,9 +16,10 @@ seaside_reef_url = "https://www.surfline.com/surf-report/seaside-reef/5842041f4e
 d_street_url = "https://www.surfline.com/surf-report/d-street/5842041f4e65fad6a77088b7"
 la_jolla_url = "https://www.surfline.com/surf-report/la-jolla-shores/5842041f4e65fad6a77088cc"
 swamis_url = "https://www.surfline.com/surf-report/swami-s/5842041f4e65fad6a77088b4"
+pacific_beach = 'https://www.surfline.com/surf-report/pacific-beach/5842041f4e65fad6a7708841'
 
-urls = [tmp_url, oside_harbor_url, oside_pier_north_url, oside_pier_south_url, swamis_url, grandview_url, d_street_url,
-        seaside_reef_url, la_jolla_url]
+urls = [tmp_url, oside_harbor_url, oside_pier_north_url, oside_pier_south_url, tamarack, swamis_url, grandview_url, d_street_url,
+        seaside_reef_url, la_jolla_url, pacific_beach]
 
 
 def get_surf_data():
