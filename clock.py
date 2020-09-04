@@ -11,15 +11,16 @@ sched = BlockingScheduler()
 #     api.update_status("hello")
 
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=15, minute=4)
+@sched.scheduled_job('cron', day_of_week='*', hour=15, minute=17)
 def test():
     tweet()
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=6)
+
+@sched.scheduled_job('cron', day_of_week='*', hour=6)
 def morning():
     tweet()
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=16)
+@sched.scheduled_job('cron', day_of_week='*', hour=16)
 def afternoon():
     tweet()
 
