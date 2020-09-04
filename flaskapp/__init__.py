@@ -10,7 +10,6 @@ def create_app(config_class=Config):
 
     # REGISTER BLUEPRINTS
     from flaskapp.bots.app import bots
-    app.register_blueprint(main)
     app.register_blueprint(bots)
 
     return app
