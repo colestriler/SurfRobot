@@ -13,7 +13,7 @@ sched = BlockingScheduler()
 #     api.update_status("hello")
 
 
-@sched.scheduled_job('cron', day_of_week='mon-fri', hour=13, minute=58)
+@sched.scheduled_job('cron', day_of_week='mon-fri', hour=14, minute=3)
 def test():
     tweet()
 
