@@ -29,16 +29,23 @@ def tweet():
 
         previous_tweet = api.user_timeline(id = api.me().id, count = 1)[0]
 
+        if datas[i]['condition'] == "poor":
+            cond_emoji = "❌"
+        elif datas[i]['condition'] == "poor to fair":
+            cond_emoji = "⚠️"
+        else:
+            cond_emoji = "✅"
+
         tweet = f"""{locations[i]}:
 
-Condition: {datas[i]['condition']}
-Wave height: {datas[i]['wave_height']}
-Tide: {datas[i]['tide']}
-Wind: {datas[i]['wind']}
-Swells: {datas[i]['swells'][0]},
+{cond_emoji}Condition: {datas[i]['condition']}
+{"🌊"}Wave height: {datas[i]['wave_height']}
+{"🌙"}Tide: {datas[i]['tide']}
+{"💨"}Wind: {datas[i]['wind']}
+{"🧭"}Swells: {datas[i]['swells'][0]},
         {datas[i]['swells'][1]}
-Water temp: {datas[i]['H20temp']}℉
-Outside Weather: {datas[i]['weather']}℉
+{"🌡"}Water temp: {datas[i]['H20temp']}℉
+{"🌞"}Outside Weather: {datas[i]['weather']}℉
         """
 
         api.update_status(tweet, in_reply_to_status_id=previous_tweet.id)

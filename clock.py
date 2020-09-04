@@ -10,12 +10,12 @@ sched = BlockingScheduler()
 #     print('This job is run every three minutes.')
 #     api.update_status("hello")
 
-print("BEFORE TWEET")
-@sched.scheduled_job('cron', day_of_week='*', hour=15, minute=38)
-def test():
-    print("STARTING TWEET")
-    tweet()
-    print("TWEETED")
+# print("BEFORE TWEET")
+# @sched.scheduled_job('cron', day_of_week='*', hour=15, minute=51)
+# def test():
+#     print("STARTING TWEET")
+#     tweet()
+#     print("TWEETED")
 
 
 @sched.scheduled_job('cron', day_of_week='*', hour=6)
