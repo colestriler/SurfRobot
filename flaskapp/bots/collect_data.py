@@ -18,8 +18,19 @@ la_jolla_url = "https://www.surfline.com/surf-report/la-jolla-shores/5842041f4e6
 swamis_url = "https://www.surfline.com/surf-report/swami-s/5842041f4e65fad6a77088b4"
 pacific_beach = 'https://www.surfline.com/surf-report/pacific-beach/5842041f4e65fad6a7708841'
 
-urls = [tmp_url, oside_harbor_url, oside_pier_north_url, oside_pier_south_url, tamarack, swamis_url, grandview_url, d_street_url,
-        seaside_reef_url, la_jolla_url, pacific_beach]
+urls = [
+    tmp_url,
+    oside_harbor_url,
+    oside_pier_north_url,
+    oside_pier_south_url,
+    tamarack,
+    swamis_url,
+    grandview_url,
+    d_street_url,
+    seaside_reef_url,
+    la_jolla_url,
+    pacific_beach
+]
 
 
 def get_surf_data():
@@ -55,34 +66,34 @@ def get_surf_data():
         url_wind = current_wind.next_element.next_element.next_element.text
         data['wind'] = url_wind
 
-        # swells
-        swells = url_soup.find("div", {
-            "class": "quiver-spot-forecast-summary__stat-container quiver-spot-forecast-summary__stat-container--swells"})
-        swells_line_1 = ""
-        swells_line_2 = ""
-        swells_line_3 = ""
-        swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element
-        swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_1 += " " + swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells2 = swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_2 += swells2.next_element.next_element.next_element.next_element
-        swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_2 += " " + swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_3 = swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_3 += swells_3.next_element.next_element.next_element
-        swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element
-        swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_3 += " " + swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        url_swells = swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        data['swells'] = [swells_line_1, swells_line_2, swells_line_3]
+        # # swells
+        # swells = url_soup.find("div", {
+        #     "class": "quiver-spot-forecast-summary__stat-container quiver-spot-forecast-summary__stat-container--swells"})
+        # swells_line_1 = ""
+        # swells_line_2 = ""
+        # swells_line_3 = ""
+        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element
+        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_1 += " " + swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells2 = swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_2 += swells2.next_element.next_element.next_element.next_element
+        # swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_2 += " " + swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_3 = swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_3 += swells_3.next_element.next_element.next_element
+        # swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element
+        # swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_3 += " " + swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # url_swells = swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
+        # data['swells'] = [swells_line_1, swells_line_2, swells_line_3]
 
         # outside temp
         current_weather = url_soup.find("div", {"class": "quiver-weather-stats"})

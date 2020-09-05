@@ -1,2 +1,33 @@
 https://devcenter.heroku.com/articles/clock-processes-python
 
+from flaskapp.bots.config import create_api
+api=create_api()
+tweet = api.user_timeline(id = api.me().id, count = 1)[0]
+
+
+first tweet
+
+tweet 2
+
+
+tweet 3
+
+
+tweet 4
+
+
+tweet 5
+
+
+ids = [1, 2, 3, 4, 5]
+
+
+ids_reversed = [5, 4, 3, 2, 1]
+
+5 -> 4
+4 -> 3
+3 -> 2
+2 -> 1
+
+
+[1302113488869892096, 1302113497992495106, 1302113502740377606, 1302113507651932160, 1302113512106254336, 1302113516430569477, 1302113521077858305, 1302113525691633664, 1302113529864941569, 1302113534487134208, 1302113539021127680, 1302113543223799809]
