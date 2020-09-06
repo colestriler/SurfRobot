@@ -22,7 +22,7 @@ sched = BlockingScheduler()
 def morning():
     tweet()
 
-@sched.scheduled_job('cron', day_of_week='*', hour=17, minute=12)
+@sched.scheduled_job('cron', day_of_week='*', hour=17, minute=15)
 def afternoon():
     tweet()
 
