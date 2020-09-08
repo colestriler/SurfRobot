@@ -29,7 +29,7 @@ def tweet():
 
     for i in range(len(locations)):
 
-        previous_tweet = api.user_timeline(id = api.me().id, count = 1)[0]
+        # previous_tweet = api.user_timeline(id = api.me().id, count = 1)[0]
         #
 
         if datas[i]['condition'] == "poor":
