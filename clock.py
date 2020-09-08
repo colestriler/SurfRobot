@@ -18,7 +18,7 @@ sched = BlockingScheduler()
 #     print("TWEETED")
 
 
-@sched.scheduled_job('cron', day_of_week='*', hour=6)
+@sched.scheduled_job('cron', day_of_week='*', hour=7)
 def morning():
     tweet()
 
