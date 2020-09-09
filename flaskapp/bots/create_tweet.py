@@ -15,7 +15,7 @@ for location, data in surf_data.items() :
     locations.append(location)
     datas.append(data)
 
-def tweet(time):
+def tweet():
     today = datetime.today()
     dow = calendar.day_name[today.weekday()]
     now = datetime.now()
@@ -26,6 +26,10 @@ def tweet(time):
     # """
     #
     # api.update_status(first_tweet)
+    if today.hour <= 12:
+        time = "Morning"
+    else:
+        time = "Afternoon"
 
     for i in range(len(locations)):
 

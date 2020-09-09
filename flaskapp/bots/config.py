@@ -2,15 +2,11 @@ import tweepy
 import logging
 import os
 
-from clock import DEV
-
 logger = logging.getLogger()
-
-
 
 def create_api():
     # Use Test Configs if Running Locally
-    if os.getenv("DEVELOPMENT") == "True" and DEV==True:
+    if os.getenv("DEVELOPMENT") == "True":
         consumer_key = os.getenv("TESTING_CONSUMER_KEY")
         consumer_secret = os.getenv("TESTING_CONSUMER_SECRET")
         access_token = os.getenv("TESTING_ACCESS_TOKEN")
