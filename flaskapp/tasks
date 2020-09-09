@@ -1,0 +1,6 @@
+- use current date & time plus one minute when running and tweeting locally. pain in the ass to type that in everytime
+- if report says "report is coming soon", add time?
+- store all data that is generated into a database
+- post images of changes in H20 temp, etc. Store these images on AWS and automatically pin post?
+    - The water is {heating_up/cooling_down} this week.
+

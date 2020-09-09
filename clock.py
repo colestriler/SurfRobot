@@ -15,20 +15,20 @@ sched = BlockingScheduler()
 if os.getenv("DEVELOPMENT") == "True":
     # RUN IN DEVELOPMENT
     print("BEFORE TWEET")
-    @sched.scheduled_job('cron', day_of_week='*', hour=13, minute=7)
+    @sched.scheduled_job('cron', day_of_week='*', hour=16, minute=21)
     def test():
         print("STARTING TWEET")
-        tweet()
+        tweet(time="Afternoon")
         print("TWEETED")
 else:
     # RUN IN PRODUCTION
     @sched.scheduled_job('cron', day_of_week='*', hour=8)
     def morning():
-        tweet()
+        tweet(time="Morning")
 
     @sched.scheduled_job('cron', day_of_week='*', hour=16)
     def afternoon():
-        tweet()
+        tweet(time="Afternoon")
 
 
 sched.start()

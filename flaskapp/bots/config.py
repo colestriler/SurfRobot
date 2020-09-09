@@ -4,9 +4,12 @@ import os
 
 logger = logging.getLogger()
 
+#Temporary
+DEV=True
+
 def create_api():
     # Use Test Configs if Running Locally
-    if os.getenv("DEVELOPMENT") == "True":
+    if os.getenv("DEVELOPMENT") == "True" and DEV==True:
         consumer_key = os.getenv("TESTING_CONSUMER_KEY")
         consumer_secret = os.getenv("TESTING_CONSUMER_SECRET")
         access_token = os.getenv("TESTING_ACCESS_TOKEN")

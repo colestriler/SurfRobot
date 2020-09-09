@@ -15,7 +15,7 @@ for location, data in surf_data.items() :
     locations.append(location)
     datas.append(data)
 
-def tweet():
+def tweet(time):
     today = datetime.today()
     dow = calendar.day_name[today.weekday()]
     now = datetime.now()
@@ -39,7 +39,7 @@ def tweet():
         else:
             cond_emoji = "✅"
 
-        tweet = f"""{locations[i]}:
+        tweet = f"""{locations[i]} ({time}):
 
 {cond_emoji}Condition: {datas[i]['condition']}
 {"🌊"}Wave height: {datas[i]['wave_height']}
