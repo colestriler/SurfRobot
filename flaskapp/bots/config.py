@@ -2,10 +2,11 @@ import tweepy
 import logging
 import os
 
+from clock import DEV
+
 logger = logging.getLogger()
 
-#Temporary
-DEV=True
+
 
 def create_api():
     # Use Test Configs if Running Locally
