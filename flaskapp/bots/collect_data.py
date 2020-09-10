@@ -6,6 +6,7 @@ import numpy as np
 import re
 import requests
 
+
 tmp_url = "https://www.surfline.com/surf-report/terra-mar-point/5842041f4e65fad6a77088a6"
 tamarack = 'https://www.surfline.com/surf-report/tamarack/5842041f4e65fad6a7708837'
 oside_pier_south_url = "https://www.surfline.com/surf-report/oceanside-pier-southside/584204204e65fad6a7709435"
@@ -35,6 +36,7 @@ urls = [
 
 def get_surf_data():
     dictionary = {}
+
 
     for url in urls:
         data = {}

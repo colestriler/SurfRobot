@@ -19,11 +19,13 @@ if os.getenv("DEVELOPMENT") == "True":
     time = datetime.datetime.now()
     @sched.scheduled_job('cron', day_of_week='*',
                          hour=time.hour,
-                         minute=time.minute + 1 if time.second <= 50 else time.minute + 2
+                         minute=time.minute,
+                         second=time.second + 12
                          )
     def test():
         print("STARTING TWEET")
         tweet()
+
         print("TWEETED")
 else:
     # RUN IN PRODUCTION

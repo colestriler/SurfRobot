@@ -1,13 +1,21 @@
+import os
 from datetime import datetime
 import calendar
 from os import environ
 from flaskapp.bots.collect_data import get_surf_data
-from flaskapp.bots.config import create_api
 import time
 import secrets
+from flaskapp import create_app, db
+from flaskapp.models import Report
+from flaskapp.bots.config_class import API
+import tweepy
+from flaskapp import create_app
 
-api = create_api()
+api_class = API()
+api = api_class.create_api()
 surf_data = get_surf_data()
+
+
 
 locations = []
 datas = []
@@ -16,11 +24,13 @@ for location, data in surf_data.items() :
     datas.append(data)
 
 def tweet():
+
+
     today = datetime.today()
     dow = calendar.day_name[today.weekday()]
     now = datetime.now()
     current_time = now.strftime("%H:%M")
-    #{today.month}/{today.day}/{today.year}
+    reports = []
 
     # first_tweet = f"""🏄🏽‍♂️ Surf report for {dow} at {current_time}:
     # """
@@ -30,6 +40,11 @@ def tweet():
         time = "Morning"
     else:
         time = "Afternoon"
+
+    # DELETE ALL PREVIOUS TWEETS IF USING TESTING ACOUNT
+    if api_class.delete_all:
+        for status in tweepy.Cursor(api.user_timeline).items():
+            api.destroy_status(status.id)
 
     for i in range(len(locations)):
 
@@ -58,6 +73,29 @@ def tweet():
 
         api.update_status(tweet)
         # , in_reply_to_status_id = previous_tweet.id
+
+        report = Report(
+            location=locations[i],
+            condition=datas[i]['condition'],
+            wave_height=datas[i]['wave_height'],
+            tide=datas[i]['tide'],
+            wind=datas[i]['wind'],
+            # swells = db.Column(db.String(), nullable=True),
+            weather=datas[i]['weather'],
+            h20_temp=datas[i]['H20temp']
+        )
+        reports.append(report)
+
+    # Adding To Database
+    app = create_app()
+    with app.app_context():
+
+    # ctx.push()
+        for report in reports:
+            db.session.add(report)
+            db.session.commit()
+    # ctx.pop()
+
 
 
 

@@ -1,3 +1,59 @@
+### POSTGRES MIGRATIONS
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+$ python manage.py db init   # creates the migrations folder
+
+*** ONLY RUN THESE TWO ***
+$ python manage.py db migrate
+$ python manage.py db upgrade
+
+    $ python manage.py db --help
+
+- - - - - - - - - - - - IMPORTANT - - - - - - - - - - - -- - - -
+*** MAKE SURE TO ADD "git add migrations" TO GITHUB***
+
+*** ONCE ABOVE CHANGES ARE PUSHED TO GITHUB ***
+
+$ heroku run python manage.py db upgrade
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+### PLAY WITH DATABASE:
+(https://stackoverflow.com/questions/24060553/creating-a-database-outside-the-application-context_
+# # context (ctx) to run outside the application (no need to launch the server)
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+heroku run python
+
+from flaskapp import create_app, db
+from flaskapp.models import Report
+app = create_app()
+ctx = app.app_context()
+ctx.push()
+
+report = Report(location="carlsbad",condition="good",wave_height="5-7ft",tide="strong",wind="5% west",weather="76",h20_temp="34")
+db.session.add(report)
+db.session.commit()
+
+ctx.pop()
+exit()
+
+
+
+***!!!!!!!!!!!!! NEVER RUN THIS WHILE LOGGED INTO HEROKU !!!!!!!!!!!!***
+*** THIS IS ONLY FOR LOCAL DATABASE ***
+    *** COMMANDS TO RUN HERE ***
+db.drop_all()
+db.create_all()
+db.metadata.clear()   # if error: users already defined in metadata
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+
+
+
+
 https://devcenter.heroku.com/articles/clock-processes-python
 
 from flaskapp.bots.config import create_api
