@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bdba6ff-3a73-449c-bf60-bfe26c68a6e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/flaskapp/bots/config_class.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flaskapp/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock.py" beforeDir="false" afterPath="$PROJECT_DIR$/clock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskapp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskapp/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskapp/bots/collect_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskapp/bots/collect_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskapp/bots/create_tweet.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskapp/bots/create_tweet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskapp/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskapp/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskapp/terminal_commands" beforeDir="false" afterPath="$PROJECT_DIR$/flaskapp/terminal_commands" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,13 +13,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/flaskapp/bots/create_tweet.py">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="205">
+              <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -203,12 +190,12 @@
       <workItem from="1599251028536" duration="7988000" />
       <workItem from="1599264401361" duration="6863000" />
       <workItem from="1599695170780" duration="10210000" />
-      <workItem from="1599718860403" duration="291000" />
+      <workItem from="1599718860403" duration="597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31423000" />
+    <option name="totallyTimeSpent" value="31729000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -270,14 +257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskapp/bots/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -303,13 +282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="308" column="24" lean-forward="true" selection-start-line="308" selection-start-column="24" selection-end-line="308" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -408,13 +380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskapp/terminal_commands">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -432,6 +397,28 @@
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskapp/terminal_commands">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="26" selection-start-line="26" selection-end-line="30" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
         </state>
       </provider>
     </entry>
