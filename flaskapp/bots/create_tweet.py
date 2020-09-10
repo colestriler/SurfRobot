@@ -1,7 +1,6 @@
 import os
 from datetime import datetime
 import calendar
-from os import environ
 from flaskapp.bots.collect_data import get_surf_data
 import time
 import secrets
@@ -9,13 +8,10 @@ from flaskapp import create_app, db
 from flaskapp.models import Report
 from flaskapp.bots.config_class import API
 import tweepy
-from flaskapp import create_app
 
 api_class = API()
 api = api_class.create_api()
 surf_data = get_surf_data()
-
-
 
 locations = []
 datas = []
@@ -24,7 +20,6 @@ for location, data in surf_data.items() :
     datas.append(data)
 
 def tweet():
-
 
     today = datetime.today()
     dow = calendar.day_name[today.weekday()]
@@ -49,7 +44,6 @@ def tweet():
     for i in range(len(locations)):
 
         # previous_tweet = api.user_timeline(id = api.me().id, count = 1)[0]
-        #
 
         if datas[i]['condition'] == "poor":
             cond_emoji = "❌"
@@ -75,6 +69,7 @@ def tweet():
         # , in_reply_to_status_id = previous_tweet.id
 
         report = Report(
+            date=now,
             location=locations[i],
             condition=datas[i]['condition'],
             wave_height=datas[i]['wave_height'],
@@ -89,7 +84,6 @@ def tweet():
     # Adding To Database
     app = create_app()
     with app.app_context():
-
     # ctx.push()
         for report in reports:
             db.session.add(report)
