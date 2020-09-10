@@ -29,6 +29,10 @@ if os.getenv("DEVELOPMENT") == "True":
         print("TWEETED")
 else:
     # RUN IN PRODUCTION
+    @sched.scheduled_job('cron', day_of_week='*', hour=11, minute=44)
+    def test():
+        tweet()
+
     @sched.scheduled_job('cron', day_of_week='*', hour=8)
     def morning():
         tweet()
