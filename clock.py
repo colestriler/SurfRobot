@@ -51,7 +51,7 @@ if os.getenv("DEVELOPMENT") == "True":
 #-------------------------------------------------------------------------------
 else:
     # RUN IN PRODUCTION
-    @sched.scheduled_job('cron', day_of_week='*', hour=10)
+    @sched.scheduled_job('cron', day_of_week='*', hour=9)
     def morning():
         tweet()
 
