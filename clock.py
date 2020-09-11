@@ -38,9 +38,4 @@ else:
         tweet()
 
 
-    @sched.scheduled_job('cron', day_of_week='*', hour=17, minute=21)
-    def frida():
-        tweet()
-
-
 sched.start()
