@@ -52,15 +52,13 @@ else:
     # RUN IN PRODUCTION
     @sched.scheduled_job('cron', day_of_week='*', hour=9)
     def morning():
+        follow()
         tweet()
 
     @sched.scheduled_job('cron', day_of_week='*', hour=16)
     def afternoon():
         tweet()
 
-    @sched.scheduled_job('cron', day_of_week='*', hour=12, minute=15)
-    def start_following():
-        follow()
 
 
 sched.start()
