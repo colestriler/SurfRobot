@@ -12,12 +12,14 @@ class API():
             self.access_token = os.getenv("TESTING_ACCESS_TOKEN")
             self.access_token_secret = os.getenv("TESTING_ACCESS_TOKEN_SECRET")
             self.delete_all = True
+            self.unfollow_all = True
         else:
             self.consumer_key = os.getenv("SURFROBOT_CONSUMER_KEY")
             self.consumer_secret = os.getenv("SURFROBOT_CONSUMER_SECRET")
             self.access_token = os.getenv("SURFROBOT_ACCESS_TOKEN")
             self.access_token_secret = os.getenv("SURFROBOT_ACCESS_TOKEN_SECRET")
             self.delete_all = False
+            self.unfollow_all = False
 
     def create_api(self):
         auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
