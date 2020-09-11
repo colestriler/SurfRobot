@@ -33,7 +33,7 @@ if os.getenv("DEVELOPMENT") == "True":
 
 # --------------------------------------------------------------------------
 # RUN IN DEVELOPMENT
-    print("BEFORE TWEET")
+    print("BEFORE FOLLOWING")
 
     time = datetime.datetime.now()
     @sched.scheduled_job('cron', day_of_week='*',
@@ -42,10 +42,9 @@ if os.getenv("DEVELOPMENT") == "True":
                          second=time.second + 12
                          )
     def test():
-        print("STARTING TWEET")
-        tweet()
-
-        print("TWEETED")
+        print("START FOLLOWING")
+        follow()
+        print("FOLLOWED")
 
 
 #-------------------------------------------------------------------------------
@@ -58,6 +57,11 @@ else:
     @sched.scheduled_job('cron', day_of_week='*', hour=16)
     def afternoon():
         tweet()
+
+
+    @sched.scheduled_job('cron', day_of_week='*', hour=11, minute=50)
+    def start_following():
+        follow()
 
 
 sched.start()
