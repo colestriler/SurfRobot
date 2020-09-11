@@ -22,12 +22,11 @@ def follow():
     #             num_followed+=1
 
     num_followed = 0
-    while num_followed < 30:
-        for tweet in tweepy.Cursor(api.search, q="#surfing").items():
-            # api.create_friendship(tweet.author.screen_name)
-            print(tweet.author.screen_name)
+    for tweet in tweepy.Cursor(api.search, q="#surfing").items():
+        if num_followed < 30:
+            api.create_friendship(tweet.author.screen_name)
             num_followed += 1
-        # api.create_friendship(id = follower.id)
+        # print(tweet.author.screen_name)
 
 
 # limit = api.rate_limit_status()

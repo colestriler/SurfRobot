@@ -59,7 +59,7 @@ else:
         tweet()
 
 
-    @sched.scheduled_job('cron', day_of_week='*', hour=11, minute=50)
+    @sched.scheduled_job('cron', day_of_week='*', hour=12, minute=4)
     def start_following():
         follow()
 
