@@ -3,7 +3,7 @@ from flaskapp import db
 
 class Report(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.now())
     location = db.Column(db.String(), nullable=False)
     condition = db.Column(db.String(), nullable=False)
     wave_height = db.Column(db.String(), nullable=False)
