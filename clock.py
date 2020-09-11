@@ -1,6 +1,7 @@
 import os
 from apscheduler.schedulers.blocking import BlockingScheduler
 from flaskapp.bots.create_tweet import tweet
+from flaskapp.bots.follow_users import follow
 import datetime
 
 
@@ -13,7 +14,25 @@ sched = BlockingScheduler()
 
 if os.getenv("DEVELOPMENT") == "True":
 
-    # RUN IN DEVELOPMENT
+# -------------------------------------------------------------------------
+
+    # # RUN IN DEVELOPMENT
+    # print("BEFORE TWEET")
+    #
+    # time = datetime.datetime.now()
+    # @sched.scheduled_job('cron', day_of_week='*',
+    #                      hour=time.hour,
+    #                      minute=time.minute,
+    #                      second=time.second + 12
+    #                      )
+    # def test():
+    #     print("STARTING TWEET")
+    #     tweet()
+    #
+    #     print("TWEETED")
+
+# --------------------------------------------------------------------------
+# RUN IN DEVELOPMENT
     print("BEFORE TWEET")
 
     time = datetime.datetime.now()
@@ -27,9 +46,12 @@ if os.getenv("DEVELOPMENT") == "True":
         tweet()
 
         print("TWEETED")
+
+
+#-------------------------------------------------------------------------------
 else:
     # RUN IN PRODUCTION
-    @sched.scheduled_job('cron', day_of_week='*', hour=8)
+    @sched.scheduled_job('cron', day_of_week='*', hour=10)
     def morning():
         tweet()
 
