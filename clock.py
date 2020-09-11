@@ -52,8 +52,8 @@ else:
     # RUN IN PRODUCTION
     @sched.scheduled_job('cron', day_of_week='*', hour=9)
     def morning():
-        follow()
         tweet()
+        follow()
 
     @sched.scheduled_job('cron', day_of_week='*', hour=16)
     def afternoon():
