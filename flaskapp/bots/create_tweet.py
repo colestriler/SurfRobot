@@ -20,6 +20,10 @@ for location, data in surf_data.items() :
     datas.append(data)
 
 def tweet():
+    # DELETE ALL PREVIOUS TWEETS IF USING TESTING ACOUNT
+    # if api_class.delete_all:
+    #     for status in tweepy.Cursor(api.user_timeline).items():
+    #         api.destroy_status(status.id)
 
     today = datetime.today()
     dow = calendar.day_name[today.weekday()]
@@ -27,23 +31,19 @@ def tweet():
     current_time = now.strftime("%H:%M")
     reports = []
 
-    # first_tweet = f"""🏄🏽‍♂️ Surf report for {dow} at {current_time}:
-    # """
-    #
-    # api.update_status(first_tweet)
     if today.hour <= 12:
         time = "Morning"
     else:
         time = "Afternoon"
 
-    # DELETE ALL PREVIOUS TWEETS IF USING TESTING ACOUNT
-    if api_class.delete_all:
-        for status in tweepy.Cursor(api.user_timeline).items():
-            api.destroy_status(status.id)
+    first_tweet = f"""🏄🏽‍♂️ {time} surf report for {dow} at {current_time}:
+    """
+
+    api.update_status(first_tweet)
 
     for i in range(len(locations)):
 
-        # previous_tweet = api.user_timeline(id = api.me().id, count = 1)[0]
+        previous_tweet = api.user_timeline(id = api.me().id, count = 1)[0]
 
         if datas[i]['condition'] == "poor":
             cond_emoji = "❌"
@@ -65,8 +65,8 @@ def tweet():
         # Swells: {datas[i]['swells'][0]},
         # {datas[i]['swells'][1]}
 
-        api.update_status(tweet)
-        # , in_reply_to_status_id = previous_tweet.id
+        api.update_status(tweet, in_reply_to_status_id = previous_tweet.id)
+
 
         report = Report(
             date=now,
