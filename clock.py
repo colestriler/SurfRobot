@@ -55,7 +55,7 @@ else:
         tweet()
         follow()
 
-    @sched.scheduled_job('cron', day_of_week='*', hour=17, minute=10)
+    @sched.scheduled_job('cron', day_of_week='*', hour=17, minute=13)
     def afternoon():
         tweet()
 
