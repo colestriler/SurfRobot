@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup as soup
 import pandas as pd
 import numpy as np
 import re
+import datetime
 import requests
 
 
@@ -55,10 +56,11 @@ urls = [
 
 
 def get_surf_data():
+
     dictionary = {}
 
-
     for url in urls:
+
         data = {}
 
         url_page = requests.get(url)
@@ -89,32 +91,6 @@ def get_surf_data():
         data['wind'] = url_wind
 
         # # swells
-        # swells = url_soup.find("div", {
-        #     "class": "quiver-spot-forecast-summary__stat-container quiver-spot-forecast-summary__stat-container--swells"})
-        # swells_line_1 = ""
-        # swells_line_2 = ""
-        # swells_line_3 = ""
-        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element
-        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_1 += " " + swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_1 += swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells2 = swells.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_2 += swells2.next_element.next_element.next_element.next_element
-        # swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_2 += " " + swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_2 += swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_3 = swells2.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_3 += swells_3.next_element.next_element.next_element
-        # swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element
-        # swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_3 += " " + swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # swells_line_3 += swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
-        # url_swells = swells_3.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
         # data['swells'] = [swells_line_1, swells_line_2, swells_line_3]
 
         # outside temp
@@ -127,6 +103,27 @@ def get_surf_data():
         H20temp1 = current_H20temp.next_element.next_element.next_element.next_element.next_element
         H20temp2 = current_H20temp.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element.next_element
         data['H20temp'] = H20temp1 + "-" + H20temp2
+
+        # ----------------- API --------------------
+
+        # WEATHER DATA
+        spot_id = url.split('/')[-1]
+        api_url = 'https://services.surfline.com/kbyg/spots/forecasts/weather?spotId={}&days=6&intervalHours=1'.format(spot_id)
+        api_data = requests.get(api_url).json()
+
+        # first light
+        first_light_timestamp = api_data['data']['sunlightTimes'][0]['dawn']
+        first_light = datetime.datetime.fromtimestamp(first_light_timestamp)
+        data['first_light'] = first_light
+
+        # last light
+        last_light_timestamp = api_data['data']['sunlightTimes'][0]['dusk']
+        last_light = datetime.datetime.fromtimestamp(last_light_timestamp)
+        data['last_light'] = last_light
+
+
+
+
 
         dictionary[url_loc] = data
 

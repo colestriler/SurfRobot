@@ -60,6 +60,8 @@ def tweet():
 {"💨"}Wind: {datas[i]['wind']}
 {"🌡"}Water temp: {datas[i]['H20temp']}℉
 {"🌞"}Outside Weather: {datas[i]['weather']}℉
+{"🌅"}First Light: {datas[i]['first_light'].strftime("%H:%M")}
+{"🌌"}Last Light: {datas[i]['last_light'].strftime("%H:%M")}
         """
         # {"🧭"}
         # Swells: {datas[i]['swells'][0]},
