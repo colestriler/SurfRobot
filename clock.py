@@ -28,7 +28,6 @@ if os.getenv("DEVELOPMENT") == "True":
     def test():
         print("STARTING TWEET")
         tweet()
-
         print("TWEETED")
 
 # --------------------------------------------------------------------------

@@ -19,6 +19,10 @@ for location, data in surf_data.items() :
     locations.append(location)
     datas.append(data)
 
+length_locations = len(locations)
+
+
+
 def tweet():
     # DELETE ALL PREVIOUS TWEETS IF USING TESTING ACOUNT
     # if api_class.delete_all:
@@ -38,20 +42,16 @@ def tweet():
 
     first_tweet = f"""🏄🏽‍♂️ {time} surf report for {dow} at {current_time}:
     """
-
     api.update_status(first_tweet)
 
-    for i in range(len(locations)):
-
+    for i in range(length_locations):
         previous_tweet = api.user_timeline(id = api.me().id, count = 1)[0]
-
         if datas[i]['condition'] == "poor":
             cond_emoji = "❌"
         elif datas[i]['condition'] == "poor to fair":
             cond_emoji = "⚠️"
         else:
             cond_emoji = "✅"
-
         tweet = f"""{locations[i]} ({time}):
 
 {cond_emoji}Condition: {datas[i]['condition']}
