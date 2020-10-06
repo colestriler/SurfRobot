@@ -29,6 +29,11 @@ tourmaline='https://www.surfline.com/surf-report/old-man-s-at-tourmaline/5842041
 torrey_pines='https://www.surfline.com/surf-report/torrey-pines-state-beach/584204204e65fad6a7709994'
 del_mar='https://www.surfline.com/surf-report/del-mar/5d7687fdb4c559000112e666'
 san_elijo='https://www.surfline.com/surf-report/san-elijo-state-beach/5842041f4e65fad6a77088b8'
+trails = "https://www.surfline.com/surf-report/trails/5842041f4e65fad6a7708885"
+the_point = "https://www.surfline.com/surf-report/the-point-at-san-onofre/5842041f4e65fad6a7708831"
+upper_trestles = "https://www.surfline.com/surf-report/upper-trestles/5842041f4e65fad6a7708887"
+lower_trestles = "https://www.surfline.com/surf-report/lower-trestles/5842041f4e65fad6a770888a"
+san_onofre = "https://www.surfline.com/surf-report/san-onofre-state-beach/584204204e65fad6a77099d4"
 
 
 urls = [
@@ -45,12 +50,17 @@ urls = [
     pacific_beach,
     pipes,
     san_elijo,
+    san_onofre,
     seaside_reef_url,
     swamis_url,
     tamarack,
+    the_point,
     tmp_url,
     torrey_pines,
     tourmaline,
+    trails,
+    upper_trestles,
+    lower_trestles,
     windansea
 ]
 
